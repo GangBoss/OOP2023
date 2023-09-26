@@ -19,7 +19,7 @@ public class Superhero
     public static Superhero? Create(Heroes type)
     {
         HeroesExisting.TryAdd(type, 0);
-        if (HeroesExisting[type] >= 0)
+        if (HeroesExisting[type] >= 1)
             return null;
         HeroesExisting[type]++;
         return new Superhero(type.ToString());
