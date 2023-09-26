@@ -3,8 +3,8 @@
     public class SuperHero
     {
         public string Name { get; }
-        public static Lazy<SuperHero> Batman = new Lazy<SuperHero>(() => new SuperHero("BatMan"));
-        public static Lazy<SuperHero> Superman = new Lazy<SuperHero>(new SuperHero("SuperMan"));
+        public static Lazy<SuperHero> Batman = new (new SuperHero("BatMan"));
+        public static Lazy<SuperHero> Superman = new (new SuperHero("SuperMan"));
 
         private SuperHero(string name)
         {
