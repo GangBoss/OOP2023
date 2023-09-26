@@ -1,0 +1,15 @@
+C:\Users\VOISTINU\Desktop\New folder\OOP2023\obj\Debug\net7.0\OOP2023.csproj.AssemblyReference.cache
+C:\Users\VOISTINU\Desktop\New folder\OOP2023\obj\Debug\net7.0\OOP2023.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\VOISTINU\Desktop\New folder\OOP2023\obj\Debug\net7.0\OOP2023.AssemblyInfoInputs.cache
+C:\Users\VOISTINU\Desktop\New folder\OOP2023\obj\Debug\net7.0\OOP2023.AssemblyInfo.cs
+C:\Users\VOISTINU\Desktop\New folder\OOP2023\obj\Debug\net7.0\OOP2023.csproj.CoreCompileInputs.cache
+C:\Users\VOISTINU\Desktop\New folder\OOP2023\bin\Debug\net7.0\OOP2023.exe
+C:\Users\VOISTINU\Desktop\New folder\OOP2023\bin\Debug\net7.0\OOP2023.deps.json
+C:\Users\VOISTINU\Desktop\New folder\OOP2023\bin\Debug\net7.0\OOP2023.runtimeconfig.json
+C:\Users\VOISTINU\Desktop\New folder\OOP2023\bin\Debug\net7.0\OOP2023.dll
+C:\Users\VOISTINU\Desktop\New folder\OOP2023\bin\Debug\net7.0\OOP2023.pdb
+C:\Users\VOISTINU\Desktop\New folder\OOP2023\obj\Debug\net7.0\OOP2023.dll
+C:\Users\VOISTINU\Desktop\New folder\OOP2023\obj\Debug\net7.0\refint\OOP2023.dll
+C:\Users\VOISTINU\Desktop\New folder\OOP2023\obj\Debug\net7.0\OOP2023.pdb
+C:\Users\VOISTINU\Desktop\New folder\OOP2023\obj\Debug\net7.0\OOP2023.genruntimeconfig.cache
+C:\Users\VOISTINU\Desktop\New folder\OOP2023\obj\Debug\net7.0\ref\OOP2023.dll
