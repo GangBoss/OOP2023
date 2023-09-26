@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
-    internal class SuperHero
+    class SuperHero
     {
         private string name;
-        public string Name { get { return name; } set { this.NewHero(value);}}
+        public string Name {get { return name; }}
         static private bool BatmanIsHere;
         static private bool SupermanIsHere;
 
