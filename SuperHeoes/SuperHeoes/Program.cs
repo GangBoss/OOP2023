@@ -8,6 +8,10 @@ Console.WriteLine(batman == newBatman);
 Console.WriteLine(superman == newSuperman);
 Console.WriteLine(superman == batman);
 
+Console.WriteLine(batman.Name);
+Console.WriteLine(superman.Name);
+
+
 public class SuperHero
 {
   private static SuperHero batman = null;
@@ -25,7 +29,8 @@ public class SuperHero
     return superMan;
   }
 
-  private readonly string Name;
+  public readonly string Name;
+
   private SuperHero(string Name)
   {
     this.Name = Name;
