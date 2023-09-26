@@ -3,34 +3,18 @@
     public class SuperHero
     {
         public string Name { get; }
-
-        private static SuperHero? _batman;
-        private static SuperHero? _superman;
-
+        public static Lazy<SuperHero> Batman = new Lazy<SuperHero>(() => new SuperHero("BatMan"));
+        public static Lazy<SuperHero> Superman = new Lazy<SuperHero>(new SuperHero("SuperMan"));
 
         private SuperHero(string name)
         {
             Name = name;
         }
+    }
 
-        public static SuperHero GetSuperMan()
-        {
-            if (_superman == null)
-            {
-                _superman = new SuperHero("SuperMan");
-            }
-            
-            return _superman;
-        }
-
-        public static SuperHero GetBatman()
-        {
-            if (_batman == null)
-            {
-                _batman = new SuperHero("BatMan");
-            }
-
-            return _batman;
-        }
+    public static void Main()
+    {
+        var b = SuperHero.Batman;
+        var s = SuperHero.Superman;
     }
 }
