@@ -15,6 +15,7 @@ namespace Git
         public Superhero(string name) 
         {
             if (NameList.ContainsKey(name) && !NameList[name])
+                NameList[name] = true;
                 Name = name;
             else 
                 throw new ArgumentException("Нельзя создавать много героев");
