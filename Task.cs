@@ -1,76 +1,116 @@
+using System.Collections.Generic;
+
 namespace Inheritance.MapObjects
 {
-    public interface IInteractable
+    public interface IPlayerInteraction
     {
-        void Interact(Player player);
+        void InteractWith(Player player);
     }
 
-    public interface IOwned
+    public class AbstractMapObject
     {
-        int Owner { get; set; }
+        public IReadOnlyList<IPlayerInteraction> Interactions { get; }
+        public AbstractMapObject(params IPlayerInteraction[] interactions)
+        {
+            Interactions = interactions;
+        }
+
+        public void InteractWith(Player player)
+        {
+            foreach (var trait in Interactions)
+            {
+                if (player.Dead) 
+                    break;
+                trait.InteractWith(player);
+            }
+        }
     }
 
-    public interface IArmy
+    public class Dwelling : AbstractMapObject
     {
-        Army Army { get; set; }
+        public Dwelling() : base(new Ownable())
+        {
+        }
     }
 
-    public interface ITreasure
+    public class Ownable : IPlayerInteraction
     {
-        Treasure Treasure { get; set; }
-    }
-
-    public class Dwelling : IOwned, IInteractable
-    {
-        public int Owner { get; set; }
-
-        public void Interact(Player player)
+        public int Owner { get; private set; } = -1;
+        public void InteractWith(Player player)
         {
             Owner = player.Id;
         }
     }
 
-    public class Mine : IArmy, ITreasure, IOwned, IInteractable
+    public class Combatable : IPlayerInteraction
+    {
+        public Army Army { get; set; }
+
+        public Combatable(Army army)
+        {
+            Army = army;
+        }
+
+        public void InteractWith(Player player)
+        {
+            if (!player.CanBeat(Army))
+                player.Die();
+        }
+    }
+
+    public class Collectable : IPlayerInteraction
+    {
+        public Treasure Treasure { get; set; }
+
+        public Collectable(Treasure treasure)
+        {
+            Treasure = treasure;
+        }
+
+        public void InteractWith(Player player)
+        {
+            player.Consume(Treasure);
+        }
+    }
+
+    public class Creeps : AbstractMapObject
+    {
+        public Army Army { get; set; }
+        public Treasure Treasure { get; set; }
+
+        public Creeps(Army army, Treasure treasure) : base(new Combatable(army), new Collectable(treasure))
+        {
+        }
+    }
+
+    public class Mine : AbstractMapObject
     {
         public int Owner { get; set; }
         public Army Army { get; set; }
         public Treasure Treasure { get; set; }
 
-        public void Interact(Player player)
+        public Mine(Army army, Treasure treasure) : base(new Combatable(army), new Ownable(), new Collectable(treasure))
         {
-            Owner = player.Id;
         }
     }
 
-    public class Creeps : IArmy, ITreasure, IInteractable
-    {
-        public Army Army { get; set; }
-        public Treasure Treasure { get; set; }
 
-        public void Interact(Player player)
-        {
-            player.Fight(Army);
-            player.Consume(Treasure);
-        }
-    }
-
-    public class Wolves : IArmy, IInteractable
+    public class Wolves : AbstractMapObject
     {
         public Army Army { get; set; }
 
-        public void Interact(Player player)
+        public Wolves(Army army) : base(new Combatable(army))
         {
-            player.Fight(Army);
+            Army = army;
         }
     }
 
-    public class ResourcePile : ITreasure, IInteractable
+    public class ResourcePile : AbstractMapObject
     {
         public Treasure Treasure { get; set; }
-
-        public void Interact(Player player)
+        public ResourcePile(Treasure treasure)
         {
-            player.Consume(Treasure);
+            Treasure = treasure;
         }
     }
 }
