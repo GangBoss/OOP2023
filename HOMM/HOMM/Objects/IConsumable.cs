@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace HOMM.Objects
 {
-    public interface IConsumable : IInteractable<ICollector>
+    public interface IConsumable<T> : IInteractable<T>
     {
         public int Value { get; set; }
     }
 
-    public class Treasure : IConsumable
+    public class Treasure : IConsumable<ICollector>
     {
         public int Value { get; set; }
 

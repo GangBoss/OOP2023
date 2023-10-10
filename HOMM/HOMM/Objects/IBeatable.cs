@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace HOMM.Objects
 {
-    public interface IBeatable : IInteractable<IFighter>
+    public interface IBeatable<T> : IInteractable<T>
     {
         public int Strength { get; set; }
     }
 
-    public class Wolf : IBeatable
+    public class Wolf : IBeatable<IFigh>
     {
         public int Strength { get; set; }
 

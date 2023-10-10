@@ -22,7 +22,7 @@ namespace HOMM
         int Strength { get; set; }
         bool IsAlive { get; set; }
         void Die();
-        bool CanBeat(IBeatable enemy);
+        bool CanBeat<T>(IBeatable<T> enemy);
     }
 
     public interface IOwner : IInteractor
@@ -40,7 +40,7 @@ namespace HOMM
         public int Strength { get; set; }
         public bool IsAlive { get; set; }
 
-        public bool CanBeat(IBeatable enemy)
+        public bool CanBeat<T>(IBeatable<T> enemy)
         {
             return enemy.Strength <= Strength;
         }
